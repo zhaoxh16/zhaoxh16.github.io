@@ -6,21 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Categories | 咕噜咕噜的博客</title>
-    <meta property="og:title" content="Categories - 咕噜咕噜的博客">
+    <title>MNLI | 咕噜咕噜的博客</title>
+    <meta property="og:title" content="MNLI - 咕噜咕噜的博客">
     <meta property="og:type" content="article">
         
+    <meta property="article:published_time" content='2019-12-31T16:13:19&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2019-12-31T16:13:19&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="Categories">
+    <meta name="description" content="MNLI">
         
     <meta name="author" content="咕噜咕噜">
-    <meta property="og:url" content="https://blog.zhaoxinhao.cn/categories/">
+    <meta property="og:url" content="https://blog.zhaoxinhao.cn/post/mnli/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
     <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml+xml" href="https://blog.zhaoxinhao.cn/categories/index.xml" title="咕噜咕噜的博客" />
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     
@@ -45,7 +48,7 @@
             </div>
             <div>
                 <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://blog.zhaoxinhao.cn/">首页</a>
+                    <a class="current" href="https://blog.zhaoxinhao.cn/">首页</a>
                     
                 </nav>
             </div>
@@ -59,14 +62,55 @@
 
                 <div class="col-8" id="main">
                     
-<header>
+<div class="res-cons">
     
-        <h1>共有0个分类</h1>
+    <article class="post">
+        <header>
+            <h1 class="post-title">MNLI</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2019年12月31日
+        </date>
+        
+        
+        
+        <div class="post-content">
+            <h1 id="mnli">MNLI</h1>
+<p>MNLI数据集：Multi-Genre Natural Language Inference Corpus</p>
+<h2 id="heading">背景</h2>
+<p>SNLI具有的缺陷：</p>
+<ul>
+<li>SNLI中的数据的产生方式极为单一，仅限制在对可见场景的描述，假设句子过于简单，很多重要的现象（如时间、信念、情态等）被忽略。</li>
+<li>人类与机器在该数据集上表现相近，很难比较出强模型之间细粒度的差异</li>
+</ul>
+<p>MNLI希望能够提供更复杂的数据集。</p>
+<h2 id="heading-1">数据集</h2>
+<p>433K个语句对。</p>
+<p>与SNLI相似，也是找很多Premise句子，人工标注Hypothesis。</p>
+<p>Premise来自Open American National Corpus和1912到2010年可获得的Fiction，共有10种不同体裁。</p>
+<p>Hypothesis同样来源于人工生成，但在标注时会得知Premise的体裁，并需要给出符合对应体裁的Hypothesis。</p>
+<p>验证方法与SNLI相同，也是每句话额外找4个人标注分类，最终每句话有5个人的分类结果。</p>
+<p>该数据集比SNLI更难，模型跑出来正确率更低。</p>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
     
-</header>
-<div class="post-archive">
     
 
+    
+    
 </div>
 
                 </div>
@@ -133,6 +177,17 @@
     </div>
 </footer>
 
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
 
 
 <a id="rocket" href="#top"></a>

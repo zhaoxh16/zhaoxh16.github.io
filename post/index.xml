@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 咕噜咕噜的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 31 Dec 2019 11:35:08 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 31 Dec 2019 16:13:19 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.zhaoxinhao.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MNLI</title>
+      <link>https://blog.zhaoxinhao.cn/post/mnli/</link>
+      <pubDate>Tue, 31 Dec 2019 16:13:19 +0800</pubDate>
+      
+      <guid>https://blog.zhaoxinhao.cn/post/mnli/</guid>
+      <description>MNLI MNLI数据集：Multi-Genre Natural Language Inference Corpus 背景 SNLI具有的缺陷： SNLI中的数据的产生方式极</description>
+    </item>
     
     <item>
       <title>SNLI</title>

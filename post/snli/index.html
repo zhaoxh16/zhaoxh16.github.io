@@ -91,6 +91,8 @@
 <p>Premise平均长度14.1，Hypothesis平均长度8.3。74.0%的Premise和88.9%的Hypothesis是句法完整的。共有37026个不同的词语。</p>
 <h3 id="heading-3">数据验证</h3>
 <p>对所有数据的10%进行了验证。验证方式：把数据集中每个句子额外给4个人进行标注（加上原始标注共5个）。如果某个句子中有3个标注是相同的，就把它作为最终的label。大约有2%的句子没有3个相同标注，这些被标注为&rsquo;-'，并且没有在后续实验中使用。</p>
+<h3 id="heading-4">数据集划分</h3>
+<p>每个Premise只会在train/test/dev的一个中出现，不会在两个数据集中重复出现。</p>
 
         </div>
 
@@ -128,6 +130,10 @@
     <section class="widget">
         <h3 class="widget-title">最近文章</h3>
 <ul class="widget-list">
+    
+    <li>
+        <a href="https://blog.zhaoxinhao.cn/post/mnli/" title="MNLI">MNLI</a>
+    </li>
     
     <li>
         <a href="https://blog.zhaoxinhao.cn/post/snli/" title="SNLI">SNLI</a>
