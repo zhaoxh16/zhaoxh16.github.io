@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 咕噜咕噜的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 07 Jan 2020 15:06:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jan 2020 16:32:30 +0800</lastBuildDate>
     
 	<atom:link href="https://blog.zhaoxinhao.cn/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>华泰多因子模型体系初探 阅读笔记</title>
+      <link>https://blog.zhaoxinhao.cn/post/%E5%8D%8E%E6%B3%B0%E5%A4%9A%E5%9B%A0%E5%AD%90%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Wed, 08 Jan 2020 16:32:30 +0800</pubDate>
+      
+      <guid>https://blog.zhaoxinhao.cn/post/%E5%8D%8E%E6%B3%B0%E5%A4%9A%E5%9B%A0%E5%AD%90%E6%A8%A1%E5%9E%8B/</guid>
+      <description>华泰多因子模型体系初探 阅读笔记 多因子模型构建流程 因子筛选 基础数据采集 数据标准化 识别有效因子 收益预测 大</description>
+    </item>
     
     <item>
       <title>Transformer-XL</title>

@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>华泰多因子模型体系初探 阅读笔记 | 咕噜咕噜的博客</title>
+    <meta property="og:title" content="华泰多因子模型体系初探 阅读笔记 - 咕噜咕噜的博客">
+    <meta property="og:type" content="article">
+        
+    <meta property="article:published_time" content='2020-01-08T16:32:30&#43;08:00'>
+        
+        
+    <meta property="article:modified_time" content='2020-01-08T16:32:30&#43;08:00'>
+        
+    <meta name="Keywords" content="">
+    <meta name="description" content="华泰多因子模型体系初探 阅读笔记">
+        
+    <meta name="author" content="咕噜咕噜">
+    <meta property="og:url" content="https://blog.zhaoxinhao.cn/post/%E5%8D%8E%E6%B3%B0%E5%A4%9A%E5%9B%A0%E5%AD%90%E6%A8%A1%E5%9E%8B/">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href='/css/normalize.css'>
+    <link rel="stylesheet" href='/css/style.css'>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    
+
+
+    
+    
+</head>
+
+
+<body>
+    <header id="header" class="clearfix">
+    <div class="container">
+        <div class="col-group">
+            <div class="site-name ">
+                
+                    <a id="logo" href="https://blog.zhaoxinhao.cn/">
+                        咕噜咕噜的博客
+                    </a>
+                
+                
+            </div>
+            <div>
+                <nav id="nav-menu" class="clearfix">
+                    <a class="current" href="https://blog.zhaoxinhao.cn/">首页</a>
+                    
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <div id="body">
+        <div class="container">
+            <div class="col-group">
+
+                <div class="col-8" id="main">
+                    
+<div class="res-cons">
+    
+    <article class="post">
+        <header>
+            <h1 class="post-title">华泰多因子模型体系初探 阅读笔记</h1>
+        </header>
+        <date class="post-meta meta-date">
+            2020年1月8日
+        </date>
+        
+        
+        
+        <div class="post-content">
+            <h1 id="-">华泰多因子模型体系初探 阅读笔记</h1>
+<h2 id="heading">多因子模型构建流程</h2>
+<ul>
+<li>因子筛选
+<ul>
+<li>基础数据采集</li>
+<li>数据标准化</li>
+<li>识别有效因子</li>
+</ul>
+</li>
+<li>收益预测
+<ul>
+<li>大类因子分析</li>
+<li>因子共线性分析</li>
+<li>残差异方差分析</li>
+<li>多元线性回归</li>
+<li>计算因子预期收益</li>
+<li>计算股票预期收益</li>
+</ul>
+</li>
+<li>风险预测
+<ul>
+<li>计算因子历史收益率协方差矩阵</li>
+<li>残差风险估计</li>
+</ul>
+</li>
+<li>组合优化
+<ul>
+<li>确定组合的收益目标</li>
+<li>确定组合的风险目标</li>
+<li>行业权重约束</li>
+<li>因子暴露约束</li>
+<li>个股上下限约束</li>
+<li>二次规划求解组合权重分配</li>
+<li>模拟业绩回溯</li>
+</ul>
+</li>
+</ul>
+<h2 id="heading-1">基本理论</h2>
+<ul>
+<li>风险的定义：收益的标准差（其他定义还有Semivariance, Downside Risk, Shortfall Probability, Value at Risk等)</li>
+<li>相对风险（跟踪误差）：如果投资组合被设置响应的业绩基准，那么$r_{PA}=r_P-r_B$称为组合的主动收益率，相应的主动风险即主动收益率的标准差。</li>
+<li>多因子模型风险分解：
+<ul>
+<li>市场风险</li>
+<li>行业风险</li>
+<li>风格风险（十二类）</li>
+</ul>
+</li>
+<li>Alpha的定义
+<ul>
+<li>$r_P(t)$是投资组合在$t$时刻的超额收益率，$r_B(t)$是业绩基准在同时期的超额收益率，那么回归模型为$r_P(t)=\alpha_P+\beta_P*r_B(t)+\epsilon_P(t)$</li>
+<li>组合$P$的残差收益率是$\theta_P(t)=\alpha_P+\epsilon_P(t)$</li>
+<li>业绩基准组合的残差收益率是0</li>
+</ul>
+</li>
+<li>业绩衡量
+<ul>
+<li>信息比率(IR): $IR_P=\frac{\alpha_P}{\omega_P}$，年化残差收益率对年化残差风险的比值</li>
+<li>信息系数(IC): $IR=IC*\sqrt{BR}$
+<ul>
+<li>BR(Breadth) 投资策略的广度（每年对超额收益率做出的独立预测数目，或调仓次数）</li>
+<li>IC(Information Coefficient) 信息系数，每个预测与实现结果之间的相关系数$Corr(f_{t-1}, r_t)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="heading-2">多因子模型构建</h2>
+<p><img src="%E5%A4%9A%E5%9B%A0%E5%AD%90%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="image"></p>
+<h3 id="heading-3">准备工作</h3>
+<h4 id="heading-4">基础数据采集</h4>
+<p>十二类风格因子</p>
+<h4 id="heading-5">数据标准化</h4>
+<p>两种标准化方式</p>
+<ul>
+<li>直接对因子载荷原始值进行标准化（尽量保留原始分布关系）
+<ul>
+<li>首先去极值（常见的例如“中位数去极值法”）</li>
+<li>然后进行标准化（减均值再除以标准差）</li>
+</ul>
+</li>
+<li>首先将因子载荷原始值转换为排序值，再进行标准化（标准化后是标准正态分布）
+<ul>
+<li>先转换为排序值</li>
+<li>再标准化</li>
+</ul>
+</li>
+</ul>
+<h4 id="heading-6">有效因子识别</h4>
+<p>两个条件：</p>
+<ul>
+<li>逻辑上与收益率存在相关性</li>
+<li>实证中与收益率存在相关性</li>
+</ul>
+<p>步骤：</p>
+<ul>
+<li>
+<p>首先单因子回归，确定每个因子每期的因子收益</p>
+<ul>
+<li>
+<p>针对因子k，在时期t，模型为$r_j^t = \sum_{s=1}^SX_{js}^t*f_s^t+X_{jk}^t*f_k^t+u_j^t$，其中$X_{js}^t$是当期对行业的暴露程度，$f_s^t$是当期行业收益率，$X_{jk}^t$是当期因子载荷（在前面进行标准化的那个），$f_k^t$是当期因子收益率。</p>
+</li>
+<li>
+<p>$X_{js}^t$是一个0-1哑变量（在某个行业为1，其他的都为0），或者是一个比例拆分（所有行业上暴露度加起来为1）</p>
+</li>
+<li>
+<p>可以参考中信行业指数系列</p>
+</li>
+</ul>
+</li>
+<li>
+<p>因子收益率序列t检验</p>
+<p>三个方面：</p>
+<ul>
+<li>t值绝对值序列的均值</li>
+<li>t值绝对值序列大于2的比例</li>
+<li>因子收益率序列的t检验（观察因子收益率序列的方向一致性）</li>
+</ul>
+<p>有效因子分类：</p>
+<ul>
+<li>收益类因子：因子收益率序列的t值显著不等于0，因子收益率方向性明确。<strong>（能否说明该类因子的产生原因不是风险？）</strong></li>
+<li>风险类因子：因子收益率序列的t值在0附近，因子收益率方向性相对不明确。</li>
+</ul>
+</li>
+<li>
+<p>辅助鉴别之因子IC值</p>
+<ul>
+<li>因子k的IC值指个股第T期在因子k上的暴露度与T+1期收益率的相关系数。</li>
+<li>与t值一样，都用来反映该因子的稳健性信息。t值与IC值正相关，但关系较为复杂（后续多因子报告会有数学推导）</li>
+<li>利用IC值时，需要先对因子提纯，排除行业、市值等因素影响。方法是在每个横截面上用因子作为因变量，市值因子、行业因子等作为自变量，进行线性回归，取残差作为因子值的替代。</li>
+<li>在得到各因子IC值序列后，可以计算其序列的均值、绝对值均值（因子有效性），标准差（因子稳健性），大于0的占比（因子效果一致性）等。</li>
+</ul>
+</li>
+<li>
+<p>因子打分法回测</p>
+<p><img src="%E5%9B%A0%E5%AD%90%E6%89%93%E5%88%86%E6%B3%95%E5%9B%9E%E6%B5%8B.png" alt="image-20200108135753846"></p>
+</li>
+</ul>
+<h3 id="heading-7">收益模型</h3>
+<h4 id="heading-8">大类因子分析</h4>
+<p>同类型因子（例如前述12类）可能存在较强相关性，造成线性回归时多重共线性。因此需要先根据大类对因子的相关性进行t检验。</p>
+<p>步骤：</p>
+<ul>
+<li>同类型因子的相关性检验：同类型的K候选因子，向前选取M个月数据作为样本，计算出相关系数矩阵，再对每个相关系数计算时间序列上的平均值，然后做进行t检验。</li>
+<li>因子取舍或因子合成：
+<ul>
+<li>等权法；历史收益率加权法；历史信息比例加权法；主成分分析</li>
+</ul>
+</li>
+</ul>
+<h4 id="heading-9">因子共线性分析</h4>
+<p>与大类因子分析本质目标基本一致</p>
+<h4 id="heading-10">残差异方差分析</h4>
+<p>异方差性对OLS估计的影响：</p>
+<ul>
+<li>
+<p>回归系数的OLS估计量仍然无偏、一致，$R^2$不受影响</p>
+</li>
+<li>
+<p>回归标准差的估计不再是无偏的，因此回归系数OLS估计量的方差不再是无偏的，OLS估计量不再是有效的和渐进有效的。</p>
+</li>
+<li>
+<p>t统计量不服从t分布，F统计量也不服从F分布，因此无法进行假设检验和区间估计，也无法进行区间预测。</p>
+</li>
+</ul>
+<p>异方差检验方法：Breusch-Pagan Test或White Test</p>
+<p>存在异方差的模型需要用加权最小二乘法进行回归。</p>
+<ul>
+<li>异方差形式已知，直接加权最小二乘法</li>
+<li>异方差形式未知，需要假设一个异方差的形式，先估计出残差，再用残差估计出假设的异方差形式的参数，最后再用加权最小二乘法。</li>
+</ul>
+<h4 id="heading-11">多元线性回归</h4>
+<p>回归模型基本假设：</p>
+<ul>
+<li>参数线性性</li>
+<li>样本随机性</li>
+<li>不存在完全共线性</li>
+<li>零条件均值</li>
+<li>同方差性</li>
+<li>正态性</li>
+</ul>
+<h4 id="heading-12">估计因子预期收益</h4>
+<p>用前T期数据估计T+1期因子预期收益，方法很多，例如：</p>
+<ul>
+<li>历史均值法</li>
+<li>指数加权移动平均法</li>
+<li>时间序列预测法</li>
+<li>滤波法提取趋势</li>
+</ul>
+<h4 id="heading-13">计算股票预期收益</h4>
+<p>用T+1期因子预期收益乘上因子暴露度得到。</p>
+<h3 id="heading-14">风险模型</h3>
+<h4 id="heading-15">多因子模型的风险分解</h4>
+<p>股票收益率来自共同因子部分和特异部分，因子部分又包含市场、行业、风格因子。</p>
+<p>多因子模型重点关注风格因子的收益预测和风险管理，因此</p>
+<ul>
+<li>通过股指期货对冲组合的市场风险（市值对冲）</li>
+<li>通过行业中性对冲组合的行业风险（以业绩基准的行业权重为基准进行对齐，即组合在每个行业上的权重分配与业绩基准一致）</li>
+</ul>
+<h4 id="heading-16">投资组合风险预测</h4>
+<h4 id="heading-17">因子协方差矩阵</h4>
+<p>用N期历史数据计算出因子收益率之间的协方差矩阵。</p>
+<p>通常取历史数据序列时间长度为36个月或60个月。</p>
+<h4 id="heading-18">残差风险估计</h4>
+<p>对特异收益的方差进行建模（使用时间序列模型和多因子模型，多因子模型中通常包含风险指数因子以及近期特异收益率因子）</p>
+<p>具体见《主动投资组合管理》</p>
+<h3 id="heading-19">优化模型</h3>
+<h4 id="heading-20">二次规划</h4>
+<p>到现在为止，我们已经拥有了T+1期股票预期收益、因子收益协方差矩阵、预期残差风险。可以采用二次规划的方法构建符合目标的投资组合。</p>
+<h4 id="heading-21">收益目标和风险目标</h4>
+<ul>
+<li>
+<p>控制风险，最大化收益</p>
+</li>
+<li>
+<p>保证收益，最小化风险</p>
+</li>
+</ul>
+<h4 id="heading-22">个股上下限约束</h4>
+<p>不能在单支股票上分配过多权重，以及考虑禁止卖空之类的限制</p>
+<h4 id="heading-23">行业权重约束</h4>
+<p>行业中性。</p>
+<h4 id="heading-24">因子暴露约束</h4>
+<p>避免在单个因子上暴露过多风险。</p>
+<h2 id="heading-25">绩效分析</h2>
+<h3 id="heading-26">常用指标</h3>
+<ul>
+<li>年化收益率</li>
+<li>最大回撤</li>
+</ul>
+<h3 id="heading-27">收益率回归</h3>
+<p>用组合P的收益率对业绩基准B的时间序列做回归，截距项为$\alpha$，系数为$\beta$。</p>
+<p>可以对$\alpha$做t检验。</p>
+<p>可以计算信息比率$IR=\frac{\alpha_P}{\omega_P}$，$\omega_P$是年化残差风险。</p>
+<h3 id="heading-28">基于多因子的业绩归因</h3>
+<h2 id="heading-29">注意</h2>
+<ol>
+<li>千万不能使用未来数据。例如标准化等操作时，只能在横截面上进行操作。</li>
+</ol>
+
+        </div>
+
+        
+
+
+        
+
+
+        <div class="post-meta meta-tags">
+            
+            没有标签
+            
+        </div>
+    </article>
+    
+    
+
+    
+    
+</div>
+
+                </div>
+
+                <div id="secondary">
+    <section class="widget">
+        <form id="search" action='//www.google.com/search' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
+      
+      <input type="text" name="q" maxlength="20" placeholder="Search">
+      <input type="hidden" name="sitesearch" value="https://blog.zhaoxinhao.cn/">
+      <button type="submit" class="submit icon-search"></button>
+</form>
+    </section>
+    
+    <section class="widget">
+        <h3 class="widget-title">最近文章</h3>
+<ul class="widget-list">
+    
+    <li>
+        <a href="https://blog.zhaoxinhao.cn/post/%E5%8D%8E%E6%B3%B0%E5%A4%9A%E5%9B%A0%E5%AD%90%E6%A8%A1%E5%9E%8B/" title="华泰多因子模型体系初探 阅读笔记">华泰多因子模型体系初探 阅读笔记</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.zhaoxinhao.cn/post/Transformer-XL/" title="Transformer-XL">Transformer-XL</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.zhaoxinhao.cn/post/scitail/" title="SciTail">SciTail</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.zhaoxinhao.cn/post/mnli/" title="MNLI">MNLI</a>
+    </li>
+    
+    <li>
+        <a href="https://blog.zhaoxinhao.cn/post/snli/" title="SNLI">SNLI</a>
+    </li>
+    
+</ul>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">分类</h3>
+<ul class="widget-list">
+    
+</ul>
+    </section>
+
+    <section class="widget">
+        <h3 class="widget-title">标签</h3>
+<div class="tagcloud">
+    
+</div>
+    </section>
+
+    
+
+    <section class="widget">
+        <h3 class="widget-title">其它</h3>
+        <ul class="widget-list">
+            <li><a href="https://blog.zhaoxinhao.cn/index.xml">文章 RSS</a></li>
+        </ul>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+    <div class="container">
+        &copy; 2020 <a href="https://blog.zhaoxinhao.cn/">咕噜咕噜的博客 By 咕噜咕噜</a>.
+        Powered by <a rel="nofollow noreferer noopener" href="https://gohugo.io" target="_blank">Hugo</a>.
+        <a href="https://www.flysnow.org/" target="_blank">Theme</a> based on <a href="https://github.com/flysnow-org/maupassant-hugo" target="_blank">maupassant</a>.
+        
+    </div>
+</footer>
+
+
+    
+    <script type="text/javascript">
+        window.MathJax = {
+            tex2jax: {
+                inlineMath: [['$', '$']],
+                processEscapes: true
+                }
+            };
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+
+
+<a id="rocket" href="#top"></a>
+<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-155222096-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+</body>
+
+</html>
