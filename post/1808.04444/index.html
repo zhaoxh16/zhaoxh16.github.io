@@ -6,20 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>SNLI | 咕噜咕噜的博客</title>
-    <meta property="og:title" content="SNLI - 咕噜咕噜的博客">
+    <title>Character-Level Language Modeling with Deeper Self-Attention 阅读笔记 | 咕噜咕噜的博客</title>
+    <meta property="og:title" content="Character-Level Language Modeling with Deeper Self-Attention 阅读笔记 - 咕噜咕噜的博客">
     <meta property="og:type" content="article">
         
-    <meta property="article:published_time" content='2019-12-31T11:35:08&#43;08:00'>
+    <meta property="article:published_time" content='2020-01-09T10:27:30&#43;08:00'>
         
         
-    <meta property="article:modified_time" content='2019-12-31T11:35:08&#43;08:00'>
+    <meta property="article:modified_time" content='2020-01-09T10:27:30&#43;08:00'>
         
     <meta name="Keywords" content="">
-    <meta name="description" content="SNLI">
+    <meta name="description" content="Character-Level Language Modeling with Deeper Self-Attention 阅读笔记">
         
     <meta name="author" content="咕噜咕噜">
-    <meta property="og:url" content="https://blog.zhaoxinhao.cn/post/snli/">
+    <meta property="og:url" content="https://blog.zhaoxinhao.cn/post/1808.04444/">
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href='/css/normalize.css'>
@@ -127,18 +127,7 @@
 <div class="post-toc" style="position: absolute; top: 188px;">
     <h2 class="post-toc-title">文章目录</h2>
     <div class="post-toc-content">
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#heading">论文</a></li>
-    <li><a href="#heading-1">数据集构建</a>
-      <ul>
-        <li><a href="#heading-2">数据收集</a></li>
-        <li><a href="#heading-3">数据验证</a></li>
-        <li><a href="#heading-4">数据集划分</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+        <nav id="TableOfContents"></nav>
     </div>
 </div>
 <script type="text/javascript">
@@ -170,33 +159,18 @@
 </script>
     <article class="post">
         <header>
-            <h1 class="post-title">SNLI</h1>
+            <h1 class="post-title">Character-Level Language Modeling with Deeper Self-Attention 阅读笔记</h1>
         </header>
         <date class="post-meta meta-date">
-            2019年12月31日
+            2020年1月9日
         </date>
         
         
         
         <div class="post-content">
-            <h1 id="snli">SNLI数据集</h1>
-<h2 id="heading">论文</h2>
-<p><a href="https://www.nyu.edu/projects/bowman/">Samuel R. Bowman</a>, <a href="http://cs.stanford.edu/~angeli/">Gabor Angeli</a>, <a href="http://www.stanford.edu/~cgpotts/">Christopher Potts</a>, and <a href="http://nlp.stanford.edu/~manning/">Christopher D. Manning</a>. 2015. A large annotated corpus for learning natural language inference. In <em>Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>. [<a href="http://nlp.stanford.edu/pubs/snli_paper.pdf">pdf</a>] [<a href="http://nlp.stanford.edu/pubs/snli_paper.bib">bib</a>]</p>
-<h2 id="heading-1">数据集构建</h2>
-<h3 id="heading-2">数据收集</h3>
-<p>三分类数据集，把两句话关系分为entailment，contradiction，neutral三种。</p>
-<p>共有570K个句子对，由人工根据图片的字幕进行生成（字幕来源Flickr30k corpus）。每个人在看到字幕后（不看图片），需要创造3种句子：</p>
-<ul>
-<li>一个一定正确的对图片的描述</li>
-<li>一个可能正确的对图片的描述</li>
-<li>一个一定错误的对图片的描述</li>
-</ul>
-<p>这三个句子被分别作为entailment, neutral和contradiction。</p>
-<p>Premise平均长度14.1，Hypothesis平均长度8.3。74.0%的Premise和88.9%的Hypothesis是句法完整的。共有37026个不同的词语。</p>
-<h3 id="heading-3">数据验证</h3>
-<p>对所有数据的10%进行了验证。验证方式：把数据集中每个句子额外给4个人进行标注（加上原始标注共5个）。如果某个句子中有3个标注是相同的，就把它作为最终的label。大约有2%的句子没有3个相同标注，这些被标注为&rsquo;-'，并且没有在后续实验中使用。</p>
-<h3 id="heading-4">数据集划分</h3>
-<p>每个Premise只会在train/test/dev的一个中出现，不会在两个数据集中重复出现。</p>
+            <h1 id="heading">背景</h1>
+<p>TransformerXL的论文中多次提到这篇文章，因此需要读一下。</p>
+<h1 id="heading-1">论文阅读</h1>
 
         </div>
 

@@ -3,8 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://blog.zhaoxinhao.cn/post/1808.04444/</loc>
+    <lastmod>2020-01-09T10:27:30+08:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://blog.zhaoxinhao.cn/post/</loc>
-    <lastmod>2020-01-08T16:32:30+08:00</lastmod>
+    <lastmod>2020-01-09T10:27:30+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhaoxinhao.cn/</loc>
+    <lastmod>2020-01-09T10:27:30+08:00</lastmod>
   </url>
   
   <url>
@@ -13,12 +23,7 @@
   </url>
   
   <url>
-    <loc>https://blog.zhaoxinhao.cn/</loc>
-    <lastmod>2020-01-08T16:32:30+08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blog.zhaoxinhao.cn/post/Transformer-XL/</loc>
+    <loc>https://blog.zhaoxinhao.cn/post/TransformerXL/</loc>
     <lastmod>2020-01-07T15:06:30+08:00</lastmod>
   </url>
   
