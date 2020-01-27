@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blog.zhaoxinhao.cn/post/1808.04444/</loc>
-    <lastmod>2020-01-09T10:27:30+08:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://blog.zhaoxinhao.cn/post/</loc>
-    <lastmod>2020-01-09T10:27:30+08:00</lastmod>
+    <lastmod>2020-01-27T10:48:02+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://blog.zhaoxinhao.cn/</loc>
+    <lastmod>2020-01-27T10:48:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhaoxinhao.cn/post/optimizers/</loc>
+    <lastmod>2020-01-27T10:48:02+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blog.zhaoxinhao.cn/post/1808.04444/</loc>
     <lastmod>2020-01-09T10:27:30+08:00</lastmod>
   </url>
   
